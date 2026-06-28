@@ -1,5 +1,5 @@
 InfoPanel={}
-local version=1.61
+local version=1.63
 local lang=GetCVar("language.2")
 local fs=7.2
 ZO_CreateStringId("SI_BINDING_NAME_IP_TIMER_START", "Start timer")
@@ -32,7 +32,7 @@ local bg={
 	"esoui/art/screens_app/gamepad/gp_loading_text_background-1024x256.dds",
 	}
 local IsChest={
-	["Truhe"]=true,
+	["Truhe^f"]=true,
 	["Coffre"]=true,
 	["Chest"]=true,
 	["сундук"]=true,
@@ -51,66 +51,54 @@ local FishIcon={
 	Running="/esoui/art/icons/crafting_fishing_river_betty.dds",
 	}
 local FishingZones={
-	[2]=471,--Glenumbra
-	[4]=472,--Stormhaven
-	[5]=473,--Rivenspire
-	[9]=477,--Stonefalls
-	[10]=478,--Deshaan
-	[11]=486,--Malabal Tor
-	[14]=475,--Bangkorai
-	[15]=480,--Eastmarch
-	[16]=481,--Rift
-	[17]=474,--Alik'r Desert
-	[18]=485,--Greenshade
-	[19]=479,--Shadowfen
-	[38]=489,--Cyrodiil
-	[154]=490,--Coldhabour
-	[178]=483,--Auridon
-	[179]=487,--Reaper's March
-	[180]=484,--Grahtwood
-	[501]=916,--Carglorn
-	[109]=493,--Bleakrock
-	[305]=491,--Stros M'Kai
-	[306]=491,--Betnikh
-	[307]=492,--Khenarthi's Roost
+	[3]=471,--Glenumbra
+	[19]=472,--Stormhaven
+	[20]=473,--Rivenspire
+	[41]=477,--Stonefalls
+	[57]=478,--Deshaan
+	[58]=486,--Malabal Tor
+	[92]=475,--Bangkorai
+	[101]=480,--Eastmarch
+	[103]=481,--Rift
+	[104]=474,--Alik'r Desert
+	[108]=485,--Greenshade
+	[117]=479,--Shadowfen
+	[181]=489,--Cyrodiil
+	[280]=493,--Bleakrock
+	[347]=490,--Coldhabour
+	[381]=483,--Auridon
+	[382]=487,--Reaper's March
+	[383]=484,--Grahtwood
+	[534]=491,--Stros M'Kai
+	[535]=491,--Betnikh
+	[537]=492,--Khenarthi's Roost
+	[888]=916,--Carglorn
 	--DLC
-	[347]=1186,--Imperial City
-	[380]=1340,--Wrothgar
-	[443]=1351,--Hew's Bane
-	[449]=1431,--Gold Coast
-	[468]=1882,--Vvardenfell
-	[589]=2027,--Clockwork City
-	[590]=2027,--Clockwork City Brass Fortress
-	[617]=2191,--Summerset
-	[633]=2240,--Arteum
-	[408]=2295,--Murkmire
-	[682]=2412,--Northern Elsweyr
-	[721]=2566,--Southern Elsweyr
-	[744]=2655,--Greymoor
-	[784]=2861,--Markarth
-	[835]=2981,--Blackwood
-	[858]=3144,--Deadlands
-	[884]=3269,--High Isle
-	[930]=3500,--Firesong
-	[959]=3636,--Necrom
-	[982]=3948,--Gold Road
-	[1033]=4404,--W Solstice
-	[1034]=4460,--E Solstice
-	bleakrockvillage_base=493,
-	murkmire_base=2295,rootwhisper_base=2295,brightthroatvillage_base=2295,lilmothcity_base=2295,
-	imperialcity_base=1186,
-	wrothgar_base=1340,
-	hewsbane_base=1351,
-	goldcoast_base=1431,anvilcity_base=1431,kvatchcity_base=1431,
-	vvardenfell_base=1882,
-	clockwork_base=2027,brassfortress_base=2027,
-	summerset_base=2191,lillandrill_base=2191,
-	artaeum_base=2240,
-	blackreach_base=2655,
-	u28_blackreach_base=2861,
-	u38_apocrypha_base=3636,
-	u48_overland_base_west=4404,
-	u48_overland_base_east=4460,
+	[584]=1186,--Imperial City
+	[684]=1340,--Wrothgar
+	[726]=2295,--Murkmire
+	[816]=1351,--Hew's Bane
+	[823]=1431,--Gold Coast
+	[849]=1882,--Vvardenfell
+	[980]=2027,--Clockwork City
+	[981]=2027,--Clockwork City Brass Fortress
+	[1011]=2191,--Summerset
+	[1027]=2240,--Arteum
+	[1086]=2412,--Northern Elsweyr
+	[1133]=2566,--Southern Elsweyr
+	[1160]=2655,--Greymoor
+	[1161]=2655,--Greymoor (Blackreach Greymoor Caverns)
+	[1207]=2861,--Markarth
+	[1208]=2861,--Markarth (Blackreach Arkthzand Cavern)
+	[1261]=2981,--Blackwood
+	[1286]=3144,--Deadlands
+	[1318]=3269,--High Isle
+	[1383]=3500,--Firesong
+	[1413]=3636,--Necrom (Apocrypha)
+	[1414]=3636,--Necrom (Telvanni Peninsula)
+	[1443]=3948,--Gold Road
+	[1502]=4404,--W Solstice
+	[1502]=4460,--E Solstice
 }
 local FishingAchievements={[471]=true,[472]=true,[473]=true,[474]=true,[475]=true,[477]=true,[478]=true,[479]=true,[480]=true,[481]=true,[483]=true,[484]=true,[485]=true,[486]=true,[487]=true,[489]=true,[490]=true,[491]=true,[492]=true,[493]=true,[916]=true,[1186]=true,[1339]=true,[1340]=true,[1351]=true,[1431]=true,[1882]=true,[2191]=true,[2240]=true,[2295]=true,[2412]=true,[2566]=true,[2655]=true,[2861]=true,[2981]=true,[3144]=true,[3269]=true,[3500]=true,[3636]=true,[3948]=true,[4404]=true,[4460]=true}
 local FishingBugFix={[473]={[3]="River"},[2027]={[8]="Oily"},[472]={[1]="Foul"}}
@@ -254,8 +242,8 @@ local Localization={
 	"Hirelings (beta)",		   "Time to the next delivery",
 	"Companions",			  "",
 	"Active companion",		  "Displays the active companion name. Hidden when no companion is active.",
-	"Companion rapport",		  "Displays rapport of the active companion. Hidden when no companion is active.",
-	"Companion level",		  "Displays level progress of the active companion. Hidden when no companion is active.",
+	"Combat level",		  "Displays combat level progress of the active companion. Hidden when no companion is active.",
+	"Rapport",		  "Displays rapport of the active companion. Hidden when no companion is active.",
 	"Chat messages",			"",
 	"Achievement updates",		  "Post in chat achivement updates",
 	"AP gain",				  "Post to chat huge AP ticks",
@@ -329,8 +317,8 @@ local Localization={
 	"Наемники (beta)",		  "Время до следующей доставки.",
 	"Компаньоны",			  "",
 	"Активный компаньон",	  "Показывает имя активного компаньона. Если компаньон не активен, строка скрывается.",
-	"Раппорт компаньона",	  "Показывает rapport активного компаньона. Если компаньон не активен, строка скрывается.",
-	"Уровень компаньона",	  "Показывает уровень и прогресс активного компаньона. Если компаньон не активен, строка скрывается.",
+	"Боевой уровень",	  "Показывает боевой уровень и прогресс активного компаньона. Если компаньон не активен, строка скрывается.",
+	"Уровень отношений",	  "Показывает уровень отношений активного компаньона. Если компаньон не активен, строка скрывается.",
 	"Сообщения чата",		 "",
 	"Обновления достижений",	"Вывод в чат информации о обновлении достижений.",
 	"Получение AP gain",		"При получении большого количества AP выводить сообщение в окно чата.",
@@ -387,7 +375,7 @@ local Localization={
 	"Undaunted keys",			 "",
 	"Trade Bars",			"Displays current Trade Bars balance",
 	"Tome Points",			"",
-	"Siegel der Bestrebungen",	  "Zeigt das aktuelle Siegel der Bestrebungen Guthaben an",
+	"Siegel",	  "Zeigt das aktuelle Siegel Guthaben an",
 	"Archivale Schätze",		 "Zeigt die aktuellen Archivschätze an",
 	"Gestohlen/Hehler,schieben",	"",
 	"Zustand der Ruestung",		   "",
@@ -403,9 +391,9 @@ local Localization={
 	"Dungeon chests",			 "Adds quanity of looted/available chests in current dungeon.",
 	"Hirelings (beta)",		   "Time to the next delivery",
 	"Companions",			  "",
-	"Active companion",		  "Displays the active companion name. Hidden when no companion is active.",
-	"Companion rapport",		  "Displays rapport of the active companion. Hidden when no companion is active.",
-	"Companion level",		  "Displays level progress of the active companion. Hidden when no companion is active.",
+	"Active companion",		  "",
+	"Gefahrtenstufe",		  "",
+	"Beziehung",		  "",
 	"Chat Messages",			"",
 	"Leistungsaktualisierungen",		"Post in chat achivement updates",
 	"AP gain",				  "Post to chat huge AP ticks",
@@ -463,7 +451,7 @@ local Localization={
 	"Undaunted keys",			 "",
 	"Trade Bars",			"Displays current Trade Bars balance",
 	"Tome Points",			"",
-	"Sceaux d'Effort",		  "Affiche le solde actuel des Sceaux d'Effort",
+	"Sceaux",		  "Affiche le solde actuel des Sceaux",
 	"Fortunes archivistiques", "Affiche le solde actuel des Fortunes archivistiques",
 	"Objets volés/vendus/blanchis","Indique le nombre d'objets volés, vendus et blanchis en possession du personnage.",
 	"Etat des armures",		   "Indique le pourcentage de durabilité des armures portées par le personnage.",
@@ -479,9 +467,9 @@ local Localization={
 	"Coffres de donjon",		"Indique le nombre de coffres pillés et disponible dans le donjon actuel.",
 	"Fournisseurs (beta)",		  "Indique le temps restant avant la prochaine livraison.",
 	"Compagnons",			  "",
-	"Compagnon actif",		  "Affiche le nom du compagnon actif. Masqué si aucun compagnon n'est actif.",
-	"Relation du compagnon",	  "Affiche le rapport du compagnon actif. Masqué si aucun compagnon n'est actif.",
-	"Niveau du compagnon",		  "Affiche le niveau et la progression du compagnon actif. Masqué si aucun compagnon n'est actif.",
+	"Compagnon actif",		  "",
+	"Niveau de Combat",		  "",
+	"Relation",	  "",
 	"Chat messages",			"",
 	"Notification des succès",	  "Affiche dans la fenêtre de communication les nouveaux succès.",
 	"Notification de points d'alliance",		"Affiche dans la fenêtre de communication les points d'alliance remportés.",
@@ -511,6 +499,81 @@ local Localization={
 	["discharged"]=" déchargé",
 	["reel"]="Ferré ",
 	Lake="Lac",Foul="Sale",River="Rivière",Salt="Mer",Oily="Huileuse",Mystic="Mystique",Running="Courante",
+	},
+	zh={--provided by FusRoDah
+	"面板选项",			"",
+	"插件内存占用",	 "",
+	"计时器",				"需要在控制菜单中绑定按键才能使用",
+	"自动启动计时器",		"在地牢首领战时自动启动计时器（战利品每5分钟可获取一次）",
+	"背包空间",			"",
+	"银行空间",			 "",
+	"灵魂石",			"",
+	"灵魂石（空）",		"",
+	"开锁器",			"",
+	"修理包",			  "仅适用于【高级修理包】",
+	"现实时间",			"",
+	"泰姆瑞尔时间",			   "",
+	"时间格式",			  "",
+	"经验值",			 "经验值信息（针对当前角色的选项）",
+	"马厩信息",			  "若角色在马厩技能已满，此选项自动禁用",
+	"研究信息",		  "若角色已学会所有特性或无正在进行的研究，此选项自动禁用",
+	"联盟点数",		  "",
+	"金币",				   "",
+	"泰尔瓦石",			"",
+	"帝国碎片", "显示当前的帝国碎片数量",
+	"制作凭证",			"",
+	"变形水晶",		   "",
+	"无畏者钥匙",			 "",
+	"交易条",			"显示当前的交易条数量",
+	"古籍点数",			"",
+	"封印",		"显示当前的封印数量",
+	"档案财富",		"显示当前的档案财富数量",
+	"偷窃/销赃,洗白",		   "",
+	"装备耐久度",		"",
+	"武器充能",			 "",
+	"成就点数",		 "",
+	"天空碎片",			"",
+--	  "ESO Plus会员",				 "显示ESO Plus会员剩余时间。设置剩余天数以启用，设为0禁用。",
+	"每秒经验/AP/泰尔瓦",	   "显示每秒获得的经验/AP值。计数器每5分钟自动重置。",
+	"钓鱼: 收线提醒",		  "当鱼上钩可收线时在屏幕上显示提醒。",
+	"钓鱼: 成就信息",	   "显示当前区域的钓鱼成就信息（针对当前角色的选项）。",
+	"试炼信息",			 "增加团队副本的进度时间和得分。",
+	"地牢信息",			   "增加地牢的进度时间和得分。",
+	"地牢宝箱",			 "增加当前地牢中已拾取/可用宝箱的数量。",
+	"随从 (beta)",		   "距离下次送达的时间",
+	"同伴",			  "",
+	"当前同伴",		  "显示当前激活的同伴名称。无激活同伴时隐藏。",
+	"战斗等级",		  "显示当前激活同伴的战斗等级进度。无激活同伴时隐藏。",
+	"好感度",		  "显示当前激活同伴的好感度。无激活同伴时隐藏。",
+	"聊天消息",			"",
+	"成就更新",		  "在聊天频道发布成就更新",
+	"AP获得",				  "在聊天频道发布大量AP获得",
+	"泰尔瓦获得",			  "在聊天频道发布大量泰尔瓦获得",
+	"经验获得",		  "在聊天频道发布大量经验获得",
+	"面板设置",			 "",
+	"启用信息面板",		"在标准性能面板中显示额外信息",
+	"背景透明度",	  "将此选项设为0以禁用背景",
+	"面板缩放",			  "",
+	"更新间隔",			  "信息更新间隔（秒）",
+	"居中面板",			   "将信息面板移动到屏幕顶部，并将罗盘下移。",
+	"重置",				"重置插件设置并将框架移回默认位置",
+	"自动修理/充能",		   "",
+	"商店自动修理",		   "打开商店时自动修理所有装备",
+	"战斗中自动修理",	"装备损坏时自动修理（仅适用于【高级修理包】）",
+	"自动充能",			"自动为武器充能",
+	"聊天输出",			  "在聊天频道发布修理/充能结果",
+	Name="信息面板",
+	AutoRepair="自动修理",
+	["choices"]={"总计","总计/来自","禁用"},
+	["s_repaired"]="修理花费",
+	["c_repaired"]="已修理: ",
+	["c_charged"]=GetString(SI_ITEMTRAITTYPE2)..": ",
+	["no_kit"]="没有修理包",
+	["no_gem"]="没有灵魂石",
+	["damaged"]=" 已损坏",
+	["discharged"]=" 充能耗尽",
+	["reel"]="收线！",
+	Lake="湖泊",Foul="污水",River="河流",Salt="海水",Oily="油污",Mystic="神秘",Running="流水",
 	},
 	}
 local Items={
@@ -976,32 +1039,44 @@ local function ScanSmithing()
 --	  pl("Known traits total: "..knownTotal.."/324")
 end
 
-local function GetFishing(zone)
-	zone=zone or GetCurrentMapZoneIndex()
-	FishingText=""
-	FishingWidth=0
-	local id=FishingZones[zone]
-	if id then
-		local total={Lake=0,Foul=0,River=0,Salt=0,Oily=0,Mystic=0,Running=0}
-		for i=1,GetAchievementNumCriteria(id) do
-			local AchName,a,b=GetAchievementCriterion(id,i)
-			if FishingBugFix[id] and FishingBugFix[id][i] then
-				total[ FishingBugFix[id][i] ]=total[ FishingBugFix[id][i] ]+b-a
-			else
-				for water in pairs(total) do
-					if string.match(AchName,"("..Localization[lang][water]..")")~=nil then
-						total[water]=total[water]+b-a
+local function GetFishing(zoneIndex)
+	zoneIndex = zoneIndex or GetCurrentMapZoneIndex()
+	local id = FishingZones[GetZoneId(zoneIndex)]
+	if not id then 
+		FishingText, FishingWidth = "", 0
+		return 
+	end
+	
+	local total = {Lake=0, Foul=0, River=0, Salt=0, Oily=0, Mystic=0, Running=0}
+	local waterTypes = total
+	
+	for i = 1, GetAchievementNumCriteria(id) do
+		local name, current, required = GetAchievementCriterion(id, i)
+		local count = required - current
+		if count > 0 then
+			local water = (FishingBugFix[id] or {})[i]
+			if not water then
+				for w in pairs(waterTypes) do
+					if name:find(Localization[lang][w]) then
+						water = w
+						break
 					end
 				end
 			end
-		end
-		for water,count in pairs(total) do
-			if count>0 then
-				FishingText=FishingText..(FishingText~="" and " " or "")..zo_iconFormat(FishIcon[water],icon_p_size2,icon_p_size2).." "..count
-				FishingWidth=FishingWidth+(FishingWidth==0 and fs or 0)+icon_p_size2+2*fs
-			end
+			if water then waterTypes[water] = waterTypes[water] + count end
 		end
 	end
+	
+	local parts, widths = {}, {}
+	for water, count in pairs(waterTypes) do
+		if count > 0 then
+			parts[#parts+1] = zo_iconFormat(FishIcon[water], icon_p_size2, icon_p_size2) .. " " .. count
+			widths[#widths+1] = icon_p_size2 + 2 * fs
+		end
+	end
+	
+	FishingText = table.concat(parts, " ")
+	FishingWidth = #parts > 0 and (fs + #parts * icon_p_size2 + 2 * #parts * fs) or 0
 end
 
 local function GetSettingIcon(name)
@@ -1017,21 +1092,7 @@ local function GetCompanionName()
 	if not name or name=="" then name=GetUnitName("companion") end
 	if not name or name=="" then return nil,0 end
 	local text=zo_strformat(SI_UNIT_NAME,name)
-	return zo_iconFormat(GetSettingIcon("ActiveCompanion") or "/esoui/art/treeicons/servicepin_companions_up.dds",icon_p_size1,icon_p_size1).." |cCCCCAA"..text.."|r", string.len(text)
-end
-
-local function GetCompanionRapportText()
-	if not HasActiveCompanion() then return nil,0 end
-	local rapportValue=GetActiveCompanionRapport()
-	if rapportValue==nil then return nil,0 end
-	local text
-	if type(rapportValue)=="number" then
-		text=tostring(rapportValue)
-	else
-		text=tostring(rapportValue)
-		text=text:gsub("%s*%b()", "")
-	end
-	return zo_iconFormat(GetSettingIcon("CompanionRapport") or "/esoui/art/icons/quest_scroll_001.dds",icon_p_size1,icon_p_size1).." |cCCCCAA"..text.."|r", string.len(text)
+	return zo_iconFormat(GetSettingIcon("ActiveCompanion") or "/esoui/art/companion/gamepad/gp_category_u30_companions.dds",icon_p_size1,icon_p_size1).." |cCCCCAA"..text.."|r", string.len(text)
 end
 
 local function GetCompanionLevelText()
@@ -1046,7 +1107,21 @@ local function GetCompanionLevelText()
 		local percent=math.max(zo_roundToNearest((currentXPInLevel or 0)/totalXPInLevel,0.01),0)*100
 		text=string.format("%d (%.0f%%)", companionLevel, percent)
 	end
-	return zo_iconFormat(GetSettingIcon("CompanionLevel") or "/esoui/art/icons/icon_experience.dds",icon_p_size1,icon_p_size1).." |cCCCCAA"..text.."|r", string.len(text)
+	return zo_iconFormat(GetSettingIcon("CompanionLevel") or "/esoui/art/tutorial/gamepad/achievement_categoryicon_champion.dds",icon_p_size1,icon_p_size1).." |cCCCCAA"..text.."|r", string.len(text)
+end
+
+local function GetCompanionRapportText()
+	if not HasActiveCompanion() then return nil,0 end
+	local rapportValue=GetActiveCompanionRapport()
+	if rapportValue==nil then return nil,0 end
+	local text
+	if type(rapportValue)=="number" then
+		text=tostring(rapportValue)
+	else
+		text=tostring(rapportValue)
+		text=text:gsub("%s*%b()", "")
+	end
+	return zo_iconFormat(GetSettingIcon("CompanionRapport") or "/esoui/art/hud/loothistory_icon_rapportincrease_generic.dds",icon_p_size1,icon_p_size1).." |cCCCCAA"..text.."|r", string.len(text)
 end
 
 function InfoPanel.Update()
